@@ -1,0 +1,11 @@
+services:
+  website:
+    restart: unless-stopped
+    build:
+      context: website
+      dockerfile: Dockerfile
+    command: gunicorn website.wsgi:application --bind 0.0.0.0:8000
+    volumes:
+      - ./website/:/usr/src/app/
+    ports:
+      - 8000:8000
