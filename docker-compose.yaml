@@ -18,7 +18,8 @@ services:
     image: postgres:17.5-alpine3.21
     restart: unless-stopped
     ports:
-      - "5432:5432"
+      - 5434:5434
+    command: -p 5434
     volumes:
       - postgres_data:/var/lib/postgresql/data/
     env_file:
