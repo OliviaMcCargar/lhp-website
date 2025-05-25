@@ -22,31 +22,35 @@ RUN apt-get update --yes --quiet && apt-get install --yes --quiet --no-install-r
     libjpeg62-turbo-dev \
     zlib1g-dev \
     libwebp-dev \
+    netcat-traditional \
  && rm -rf /var/lib/apt/lists/*
 
-# Install the application server.
-RUN pip install "gunicorn==20.0.4"
+RUN pip install --upgrade pip
 
 # Install the project requirements.
 COPY requirements.txt /
 RUN pip install -r /requirements.txt
 
 # Use /app folder as a directory where the source code is stored.
-WORKDIR /app
+WORKDIR /usr/src/app
 
 # Set this directory to be owned by the "wagtail" user. This Wagtail project
 # uses SQLite, the folder needs to be owned by the user that
 # will be writing to the database file.
-RUN chown wagtail:wagtail /app
+RUN chown wagtail:wagtail /usr/src/app
 
 # Copy the source code of the project into the container.
-COPY --chown=wagtail:wagtail . .
+# COPY --chown=wagtail:wagtail . .
 
 # Use user "wagtail" to run the build commands below and the server itself.
 USER wagtail
 
+# Entrypoint
+COPY entrypoint.sh /usr/src/app/entrypoint.sh
+ENTRYPOINT ["/usr/src/app/entrypoint.sh"]
+
 # Collect static files.
-RUN python manage.py collectstatic --noinput --clear
+# RUN python manage.py collectstatic --noinput --clear
 
 # Runtime command that executes when "docker run" is called, it does the
 # following:
@@ -57,4 +61,4 @@ RUN python manage.py collectstatic --noinput --clear
 #   PRACTICE. The database should be migrated manually or using the release
 #   phase facilities of your hosting platform. This is used only so the
 #   Wagtail instance can be started with a simple "docker run" command.
-CMD set -xe; python manage.py migrate --noinput; gunicorn website.wsgi:application
+# CMD set -xe; python manage.py migrate --noinput; gunicorn website.wsgi:application

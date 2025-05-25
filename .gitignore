@@ -63,6 +63,11 @@ cover/
 local_settings.py
 db.sqlite3
 db.sqlite3-journal
+media
+/media/
+.DS_Store
+database
+/database/
 
 # Flask stuff:
 instance/
@@ -132,6 +137,7 @@ celerybeat.pid
 
 # Environments
 .env
+.env.db
 .venv
 env/
 venv/

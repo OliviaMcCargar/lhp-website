@@ -1,13 +1,20 @@
 from .base import *
 
-# SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+SECRET_KEY = os.environ.get("SECRET_KEY")
+DEBUG = os.environ.get("DEBUG")
+ALLOWED_HOSTS = os.environ.get("DJANGO_ALLOWED_HOSTS").split(" ")
 
-# SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = "django-insecure-0p0^fk^3*=yfxxh=9a-0tf&vcy&kz4p%o&lxa63$11-k6!g#(-"
-
-# SECURITY WARNING: define the correct hosts in production!
-ALLOWED_HOSTS = ["*"]
+# Database PostgreSQL
+DATABASES = {
+    'default': {
+        'ENGINE': os.environ.get("SQL_ENGINE"),
+        'NAME': os.environ.get("SQL_DATABASE"),
+        'USER': os.environ.get("SQL_USER"),
+        'PASSWORD': os.environ.get("SQL_PASSWORD"),
+        'HOST': os.environ.get("SQL_HOST"),
+        'PORT': os.environ.get("SQL_PORT"),
+    }
+}
 
 EMAIL_BACKEND = "django.core.mail.backends.console.EmailBackend"
 
