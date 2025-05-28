@@ -1,0 +1,33 @@
+on:
+  push:
+    branches:
+      - main
+  workflow_dispatch:
+  
+jobs:
+  run_pull:
+    name: run pull
+    runs-on: ubuntu-latest
+    
+    steps:
+    - name: install ssh keys
+      env: 
+        SSH_PRIVATE_KEY: ${{ secrets.SSH_PRIVATE_KEY }}
+        SSH_HOST: ${{ secrets.SSH_HOST }}
+        SSH_PORT: ${{ secrets.SSH_PORT }}
+      run: |
+        install -m 600 -D /dev/null ~/.ssh/id_rsa
+        echo "$SSH_PRIVATE_KEY" > ~/.ssh/id_rsa
+        ssh-keyscan -p $SSH_PORT -H $SSH_HOST > ~/.ssh/known_hosts
+        sudo apt-get install sshpass
+    - name: connect and pull
+      env:
+        SSH_USER: ${{ secrets.SSH_USER }}
+        SSH_USER_PSWD: ${{ secrets.SSH_USER_PSWD }}
+        SSH_HOST: ${{ secrets.SSH_HOST }}
+        SSH_PORT: ${{ secrets.SSH_PORT }}
+        WORK_DIR: ${{ secrets.WORK_DIR }}
+        MAIN_BRANCH: ${{ secrets.MAIN_BRANCH }}
+      run: sshpass -p $SSH_USER_PSWD ssh -p $SSH_PORT $SSH_USER@$SSH_HOST "cd $WORK_DIR && git checkout $MAIN_BRANCH && git pull && exit"
+    - name: cleanup
+      run: rm -rf ~/.ssh
