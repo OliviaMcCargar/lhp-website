@@ -28,6 +28,6 @@ jobs:
         SSH_PORT: ${{ secrets.SSH_PORT }}
         WORK_DIR: ${{ secrets.WORK_DIR }}
         MAIN_BRANCH: ${{ secrets.MAIN_BRANCH }}
-      run: sshpass -p $SSH_USER_PSWD ssh -p $SSH_PORT $SSH_USER@$SSH_HOST "cd $WORK_DIR && git checkout $MAIN_BRANCH && git pull && exit"
+      run: sshpass -p $SSH_USER_PSWD ssh -p $SSH_PORT $SSH_USER@$SSH_HOST "cd $WORK_DIR && git checkout $MAIN_BRANCH && git pull && docker compose down && docker compose up --build -d && exit"
     - name: cleanup
       run: rm -rf ~/.ssh
