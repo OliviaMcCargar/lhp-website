@@ -23,6 +23,16 @@
         <base target="_blank">
         {% endif %}
 
+        {# Load the tag library #}
+        {% load django_bootstrap5 %}
+
+        {# Load CSS and JavaScript #}
+        {% bootstrap_css %}
+        {% bootstrap_javascript %}
+
+        {# Display django.contrib.messages as Bootstrap alerts #}
+        {% bootstrap_messages %}
+
         {# Global stylesheets #}
         <link rel="stylesheet" type="text/css" href="{% static 'css/website.css' %}">
 
