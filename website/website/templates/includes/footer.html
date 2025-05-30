@@ -1,0 +1,31 @@
+{# Load navigation_tags at the top of the file: #}
+{# {% load navigation_tags %} #}
+
+<footer>
+    <p>Updated May 2025</p>
+    <p>Site designed and built by Olivia Kelly</p>
+
+    {% with youtube_url=settings.home.SocialMediaSettings.youtube facebook_url=settings.home.SocialMediaSettings.facebook linkedin_url=settings.home.SocialMediaSettings.linkedin discord_url=settings.home.SocialMediaSettings.discord bluesky_url=settings.home.SocialMediaSettings.bluesky %}
+        {% if youtube_url or facebook_url or linkedin_url or discord_url or bluesky_url %}
+            <p>
+                Follow me on:
+                {% if youtube_url %}
+                    <a href="{{ youtube_url }}">Youtube</a>
+                {% endif %}
+                {% if facebook_url %}
+                    <a href="{{ facebook_url }}">Facebook</a>
+                {% endif %}
+                {% if linkedin_url %}
+                    <a href="{{ linkedin_url }}">LinkedIn</a>
+                {% endif %}
+                {% if discord_url %}
+                    <a href="{{ discord_url }}">Discord</a>
+                {% endif %}
+                {% if bluesky_url %}
+                    <a href="{{ bluesky_url }}">Bluesky</a>
+                {% endif %}
+            </p>
+        {% endif %}
+    {% endwith %}
+
+</footer>
