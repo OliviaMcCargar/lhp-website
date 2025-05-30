@@ -19,11 +19,17 @@ from wagtail.snippets.models import register_snippet
 class BrandSettings(BaseGenericSetting):
 
     """Branding for our custom site"""
-    logo = models.ImageField(blank=True, upload_to=None, height_field=None, width_field=None, max_length=None)
+    brand_logo = models.ForeignKey(
+        'wagtailimages.Image',
+        null=True,
+        blank=True,
+        on_delete=models.SET_NULL,
+        related_name='+'
+    )
 
     panels = [
         MultiFieldPanel([
-            FieldPanel("logo"),
+            FieldPanel("brand_logo"),
         ], heading="Site Branding")
     ]
 
@@ -79,6 +85,16 @@ class FooterText(
 
 class HomePage(Page):
 
+    home_page_hero_image = models.ForeignKey(
+        'wagtailimages.Image',
+        null=True,
+        blank=True,
+        on_delete=models.SET_NULL,
+        related_name='+'
+    )
+
     body = RichTextField(blank=True)
 
-    content_panels = Page.content_panels + ["body"]
+    
+
+    content_panels = Page.content_panels + ["home_page_hero_image","body"]
