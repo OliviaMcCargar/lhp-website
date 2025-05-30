@@ -1,6 +1,6 @@
 from django import template
 
-from home.models import FooterText
+from base.models import FooterText
 
 register = template.Library()
 
