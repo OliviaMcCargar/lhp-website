@@ -1,4 +1,4 @@
-{% load static wagtailcore_tags wagtailuserbar %}
+{% load static wagtailcore_tags wagtailimages_tags wagtailuserbar %}
 
 <!DOCTYPE html>
 <html lang="en">
@@ -23,6 +23,16 @@
         <base target="_blank">
         {% endif %}
 
+        {# Load the tag library #}
+        {% load django_bootstrap5 %}
+
+        {# Load CSS and JavaScript #}
+        {% bootstrap_css %}
+        {% bootstrap_javascript %}
+
+        {# Display django.contrib.messages as Bootstrap alerts #}
+        {% bootstrap_messages %}
+
         {# Global stylesheets #}
         <link rel="stylesheet" type="text/css" href="{% static 'css/website.css' %}">
 
@@ -34,7 +44,12 @@
     <body class="{% block body_class %}{% endblock %}">
         {% wagtailuserbar %}
 
+        {% include "includes/header.html" %}
+
         {% block content %}{% endblock %}
+
+        {# Add this to the file: #}
+        {% include "includes/footer.html" %}
 
         {# Global javascript #}
         <script type="text/javascript" src="{% static 'js/website.js' %}"></script>

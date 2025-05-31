@@ -1,5 +1,6 @@
 services:
   website:
+    container_name: lhp-website-wagtail
     restart: unless-stopped
     build:
       context: website
@@ -15,6 +16,7 @@ services:
       - db
 
   db:
+    container_name: lhp-website-db
     image: postgres:17.5-alpine3.21
     restart: unless-stopped
     ports:

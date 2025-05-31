@@ -11,8 +11,8 @@ then
     echo "PostgreSQL started"
 fi
 
-python manage.py makemigrations --settings=website.settings.dev
-python manage.py migrate --settings=website.settings.dev
-python manage.py collectstatic --noinput --clear --settings=website.settings.dev
+python manage.py makemigrations --settings=website.settings.$SETTINGS_ENVIRONMENT
+python manage.py migrate --settings=website.settings.$SETTINGS_ENVIRONMENT
+python manage.py collectstatic --noinput --clear --settings=website.settings.$SETTINGS_ENVIRONMENT
 
 exec "$@"
