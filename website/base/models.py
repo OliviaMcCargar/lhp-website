@@ -41,7 +41,7 @@ class BrandSettings(BaseGenericSetting):
         MultiFieldPanel([
             FieldPanel("brand_logo"),
             FieldPanel("affiliate_text"),
-            FieldPanel("affiliate_logo"),
+            FieldPanel("brand_logo"),
         ], heading="Site Branding")
     ]
 
