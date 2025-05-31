@@ -1,0 +1,21 @@
+{% extends "base.html" %}
+
+{% load wagtailcore_tags %}
+{% load wagtailimages_tags %}
+
+{% block body_class %}template-aboutindexpage{% endblock %}
+
+{% block content %}
+    <h1>{{ page.title }}</h1>
+
+    <div class="intro">{{ page.intro|richtext }}</div>
+
+    {% for profile in aboutpages %}
+        {% with profile=profile.specific %}
+            {% image profile.profile_pic max-50x50 %}
+            <h2><a href="{% pageurl profile %}">{{ profile.name }}</a></h2>
+            <p>{{ profile.role }}</p>
+        {% endwith %}
+    {% endfor %}
+
+{% endblock %}
