@@ -94,7 +94,15 @@ nav a:hover, nav a:active {
 
 .profile-list a {
     text-decoration: none;
-    margin-bottom:1.5em;
+    
+}
+
+.profile-list a div {
+    margin-bottom: 2em;
+}
+
+.profile-list a div div {
+    margin-bottom: 0;
 }
 
 .profile-list div img {
@@ -103,4 +111,21 @@ nav a:hover, nav a:active {
 
 .profile-list div div h2, .profile-list div div p {
     margin: 0;
+}
+
+.profile-info img {
+    margin-right: 2em;
+}
+
+.profile-info div h2, profile-info div p {
+    margin: 0;
+}
+
+.profile-info div h2 {
+    margin-bottom: 1em;
+}
+
+.profile-body {
+    padding: 2em;
+    margin-top: 1em;
 }
