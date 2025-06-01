@@ -1,0 +1,50 @@
+{# Load navigation_tags at the top of the file: #}
+{% load navigation_tags %}
+{% load wagtailimages_tags %}
+{% load wagtailcore_tags %}
+
+<footer>
+    <p>Updated May 2025</p>
+    <p id="designed_by_slug">Site designed and built by Olivia Kelly</p>
+
+    {% with youtube_url=settings.base.SocialMediaSettings.youtube facebook_url=settings.base.SocialMediaSettings.facebook linkedin_url=settings.base.SocialMediaSettings.linkedin discord_url=settings.base.SocialMediaSettings.discord bluesky_url=settings.base.SocialMediaSettings.bluesky %}
+        {% if youtube_url or facebook_url or linkedin_url or discord_url or bluesky_url %}
+            <p>
+                Follow me on:
+                {% if youtube_url %}
+                    <a href="{{ youtube_url }}">Youtube</a>
+                {% endif %}
+                {% if facebook_url %}
+                    <a href="{{ facebook_url }}">Facebook</a>
+                {% endif %}
+                {% if linkedin_url %}
+                    <a href="{{ linkedin_url }}">LinkedIn</a>
+                {% endif %}
+                {% if discord_url %}
+                    <a href="{{ discord_url }}">Discord</a>
+                {% endif %}
+                {% if bluesky_url %}
+                    <a href="{{ bluesky_url }}">Bluesky</a>
+                {% endif %}
+            </p>
+        {% endif %}
+    {% endwith %}
+
+    {% with affiliate_text=settings.base.BrandSettings.affiliate_text affiliate_logo=settings.base.BrandSettings.affiliate_logo %}
+
+        {% if affiliate_text or affiliate_logo %}
+            <div>
+                {% if affiliate_logo %}
+                    {% image affiliate_logo max-150x150 %}
+                {% endif %}
+                {% if affiliate_text %}
+                    {{ affiliate_text|richtext }}
+                {% endif %}
+            </div>
+        {% endif %}
+
+    {% endwith %}
+
+    {% get_footer_text %}
+
+</footer>
