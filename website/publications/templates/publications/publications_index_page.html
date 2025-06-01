@@ -1,0 +1,21 @@
+{% extends "base.html" %}
+
+{% load wagtailcore_tags %}
+{% load wagtailimages_tags %}
+
+{% block body_class %}template-aboutindexpage{% endblock %}
+
+{% block content %}
+    <h1>{{ page.title }}</h1>
+
+    <div class="intro">{{ page.intro|richtext }}</div>
+
+    {% for publication in publicationpages %}
+        {% with publication=publication.specific %}
+            {% image publication.publication_pic max-100x100 %}
+            <h2><a href="{% pageurl publication %}">{{ publication.name }}</a></h2>
+            <div class="purchase_button"><a href=" {{ publication.purchase_link }}">View in Store</a></div>
+        {% endwith %}
+    {% endfor %}
+
+{% endblock %}

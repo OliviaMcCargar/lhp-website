@@ -1,0 +1,21 @@
+{% extends "base.html" %}
+
+{% load wagtailcore_tags %}
+{% load wagtailimages_tags %}
+
+{% block body_class %}template-aboutpage{% endblock %}
+
+{% block content %}
+
+    <div class="profile_info">
+        {% image page.profile_pic max-100x100 %}
+        <h2>{{ page.name }}</h2>
+        <p>{{ page.role }}</p>
+        <p>{{ page.email }}</p>
+    </div>
+    <div class="profile_body">
+        {{ page.body|richtext }}
+    </div>
+    
+    <p><a href="{{ page.get_parent.url }}">Return to {{ page.get_parent.title }}</a></p>
+{% endblock %}
