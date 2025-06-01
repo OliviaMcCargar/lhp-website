@@ -24,10 +24,16 @@ jobs:
       env:
         SSH_USER: ${{ secrets.SSH_USER }}
         SSH_USER_PSWD: ${{ secrets.SSH_USER_PSWD }}
+        SSH_USER_GROUP: ${{ secrets.SSH_USER_GROUP }}
         SSH_HOST: ${{ secrets.SSH_HOST }}
         SSH_PORT: ${{ secrets.SSH_PORT }}
         WORK_DIR: ${{ secrets.WORK_DIR }}
         MAIN_BRANCH: ${{ secrets.MAIN_BRANCH }}
-      run: sshpass -p $SSH_USER_PSWD ssh -p $SSH_PORT $SSH_USER@$SSH_HOST "cd $WORK_DIR && git checkout $MAIN_BRANCH && git pull && docker compose down && docker compose up --build -d && exit"
+      run: | 
+        sshpass -p $SSH_USER_PSWD ssh -p $SSH_PORT $SSH_USER@$SSH_HOST 
+        cd $WORK_DIR && git checkout $MAIN_BRANCH && git pull
+        chown -R $SSH_USER:$SSH_USER_GROUP $WORK_DIR
+        docker compose down && docker compose up --build -d
+        exit
     - name: cleanup
       run: rm -rf ~/.ssh
