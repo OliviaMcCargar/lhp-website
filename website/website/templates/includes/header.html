@@ -1,13 +1,13 @@
 {% load wagtailcore_tags navigation_tags %}
 
-<header>
-    {% get_site_root as site_root %}
-    <nav>
-        <p>
-        <a href="{% pageurl site_root %}">Home</a> |
-        {% for menuitem in site_root.get_children.live.in_menu %}
-            <a href="{% pageurl menuitem %}">{{ menuitem.title }}</a>
-        {% endfor %}
-        </p>
-    </nav>
-</header>
+<div class="container">
+    <header class="d-flex justify-content-center py-3">
+        {% get_site_root as site_root %}
+        <nav>
+            <a href="{% pageurl site_root %}">Home</a>
+            {% for menuitem in site_root.get_children.live.in_menu %}
+                <a href="{% pageurl menuitem %}">{{ menuitem.title }}</a>
+            {% endfor %}
+        </nav>
+    </header>
+</div>
