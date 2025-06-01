@@ -13,13 +13,17 @@
         <div class="ms-auto profile-list">
             {% for profile in aboutpages %}
                 {% with profile=profile.specific %}
-                    <div class="d-flex justify-content-center align-items-center about-child-box">
-                        {% image profile.profile_pic max-50x50 %}
-                        <div>
-                            <h2><a href="{% pageurl profile %}">{{ profile.name }}</a></h2>
-                            <p>{{ profile.role }}</p>
+                    <a href="{% pageurl profile %}">
+                        <div class="d-flex justify-content-center align-items-center about-child-box">
+                            
+                                {% image profile.profile_pic max-50x50 %}
+                                <div>
+                                    <h2>{{ profile.name }}</h2>
+                                    <p>{{ profile.role }}</p>
+                                </div>
+                            
                         </div>
-                    </div>
+                    </a>
                 {% endwith %}
             {% endfor %}
         </div>

@@ -91,3 +91,16 @@ nav a:hover, nav a:active {
 .profile-list {
     min-width: 200px;
 }
+
+.profile-list a {
+    text-decoration: none;
+    margin-bottom:1.5em;
+}
+
+.profile-list div img {
+    margin-right: 1em;
+}
+
+.profile-list div div h2, .profile-list div div p {
+    margin: 0;
+}
