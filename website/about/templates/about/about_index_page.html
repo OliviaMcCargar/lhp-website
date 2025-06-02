@@ -7,7 +7,7 @@
 
 {% block content %}
     <div class="container">
-        <h1>{{ page.title }}</h1>
+        <div class="d-flex justify-content-center align-items-center"><h1>{{ page.title }}</h1></div>
 
         <div class="intro">{{ page.intro|richtext }}</div>
         <div class="ms-auto profile-list">
@@ -16,7 +16,7 @@
                     <a href="{% pageurl profile %}">
                         <div class="d-flex justify-content-center align-items-center about-child-box">
                             
-                                {% image profile.profile_pic max-50x50 %}
+                                {% image profile.profile_pic fill-50x50 %}
                                 <div>
                                     <h2>{{ profile.name }}</h2>
                                     <p>{{ profile.role }}</p>

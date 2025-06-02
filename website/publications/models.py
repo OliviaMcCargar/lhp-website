@@ -33,6 +33,11 @@ class PublicationPage(Page):
         max_length=255, help_text="Name"
     )
 
+    teaser = models.CharField(
+        blank=True,
+        max_length=255, help_text="Short teaser text"
+    )
+
     purchase_link = models.URLField(
         blank=True, 
         null=True, 
@@ -45,6 +50,7 @@ class PublicationPage(Page):
     content_panels = Page.content_panels + [
         FieldPanel("publication_pic"),
         FieldPanel('name'),
+        FieldPanel('teaser'),
         FieldPanel('purchase_link'),
         FieldPanel('body'),
     ]

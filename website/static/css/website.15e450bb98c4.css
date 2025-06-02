@@ -88,16 +88,21 @@ nav a:hover, nav a:active {
     font-size: smaller;
 }
 
+.intro {
+    padding: 2em;
+    margin-top: 1em;
+}
+
 .profile-list {
     min-width: 200px;
 }
 
-.profile-list a {
+.profile-list a, .publication-list a {
     text-decoration: none;
     
 }
 
-.profile-list a div {
+.profile-list a div, .publication-list a div {
     margin-bottom: 2em;
 }
 
@@ -105,7 +110,7 @@ nav a:hover, nav a:active {
     margin-bottom: 0;
 }
 
-.profile-list div img {
+.profile-list div img, .publications-child-box img {
     margin-right: 1em;
 }
 
@@ -128,4 +133,8 @@ nav a:hover, nav a:active {
 .profile-body {
     padding: 2em;
     margin-top: 1em;
+}
+
+.publications-child-box div, .about-child-box div {
+    min-width: 200px;
 }
