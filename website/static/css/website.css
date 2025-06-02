@@ -144,7 +144,7 @@ nav a:hover, nav a:active {
     text-align: right;
 }
 
-.purchase-button {
+.purchase-button, form button {
     font-weight: bold;
     display: block;
     text-decoration: none;
@@ -154,7 +154,28 @@ nav a:hover, nav a:active {
     margin: 0.5em 0 0 0;
 }
 
-.purchase-button:hover, .purchase-button:active {
-    background-color: #FFF;
+form button {
+    color: #FFF;
+    background-color: #000;
+    min-width: 150px;
+}
 
+.purchase-button:hover, .purchase-button:active, form button:hover, form button:active {
+    background-color: #FFF;
+    color: #db4c36;
+}
+
+form div {
+    margin-bottom: 1em;
+}
+
+form div label {
+    display: block;
+    font-size:x-large;
+}
+
+form div .helptext {
+    color: #e0e0e0;
+    font-weight: bold;
+    font-size: smaller;
 }

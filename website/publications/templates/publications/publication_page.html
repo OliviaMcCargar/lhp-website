@@ -11,9 +11,15 @@
             {% image page.publication_pic width-300 %}
             <div>
                 <h2>{{ page.name }}</h2>
-                <a class="purchase-button" href="{{ page.purchase_link }}">Purchase through itch.io</a>
-                <a class="purchase-button" href="{{ page.purchase_link_drivethrough }}">Purchase through DriveThruRPG</a>
-                <a class="purchase-button" href="{{ page.purchase_link_lulu }}">Print on Demand</a>
+                {% if page.purchase_link %}
+                    <a class="purchase-button" href="{{ page.purchase_link }}">Purchase through itch.io</a>
+                {% endif %}
+                {% if page.purchase_link_drivethrough %}
+                    <a class="purchase-button" href="{{ page.purchase_link_drivethrough }}">Purchase through DriveThruRPG</a>
+                {% endif %}
+                {% if page.purchase_link_lulu %}
+                    <a class="purchase-button" href="{{ page.purchase_link_lulu }}">Print on Demand</a>
+                {% endif %}
             </div>
         </div>
         <div class="publication-body">
