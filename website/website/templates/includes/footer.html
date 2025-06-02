@@ -3,48 +3,54 @@
 {% load wagtailimages_tags %}
 {% load wagtailcore_tags %}
 
-<footer>
-    <p>Updated May 2025</p>
-    <p id="designed_by_slug">Site designed and built by Olivia Kelly</p>
+<div class="container mt-auto">
+    <footer class="container row">
+        <div class="d-flex justify-content-center align-items-center affiliate-box col">
+            {% with affiliate_text=settings.base.BrandSettings.affiliate_text affiliate_logo=settings.base.BrandSettings.affiliate_logo %}
 
-    {% with youtube_url=settings.base.SocialMediaSettings.youtube facebook_url=settings.base.SocialMediaSettings.facebook linkedin_url=settings.base.SocialMediaSettings.linkedin discord_url=settings.base.SocialMediaSettings.discord bluesky_url=settings.base.SocialMediaSettings.bluesky %}
-        {% if youtube_url or facebook_url or linkedin_url or discord_url or bluesky_url %}
-            <p>
-                Follow me on:
-                {% if youtube_url %}
-                    <a href="{{ youtube_url }}">Youtube</a>
+                {% if affiliate_text or affiliate_logo %}
+                    
+                    {% if affiliate_logo %}
+                        {% image affiliate_logo max-100x100 %}
+                    {% endif %}
+                    {% if affiliate_text %}
+                        {{ affiliate_text|richtext }}
+                    {% endif %}
                 {% endif %}
-                {% if facebook_url %}
-                    <a href="{{ facebook_url }}">Facebook</a>
-                {% endif %}
-                {% if linkedin_url %}
-                    <a href="{{ linkedin_url }}">LinkedIn</a>
-                {% endif %}
-                {% if discord_url %}
-                    <a href="{{ discord_url }}">Discord</a>
-                {% endif %}
-                {% if bluesky_url %}
-                    <a href="{{ bluesky_url }}">Bluesky</a>
-                {% endif %}
-            </p>
-        {% endif %}
-    {% endwith %}
 
-    {% with affiliate_text=settings.base.BrandSettings.affiliate_text affiliate_logo=settings.base.BrandSettings.affiliate_logo %}
+            {% endwith %}
+        </div>
 
-        {% if affiliate_text or affiliate_logo %}
-            <div>
-                {% if affiliate_logo %}
-                    {% image affiliate_logo max-150x150 %}
+        <div class="container col">
+            <p class="d-flex justify-content-center" id="last-updated-slug">Updated June 2025</p>
+            <p class="d-flex justify-content-center" id="designed-by-slug">Site designed and built by Olivia Kelly</p>
+
+            {% with youtube_url=settings.base.SocialMediaSettings.youtube facebook_url=settings.base.SocialMediaSettings.facebook linkedin_url=settings.base.SocialMediaSettings.linkedin discord_url=settings.base.SocialMediaSettings.discord bluesky_url=settings.base.SocialMediaSettings.bluesky %}
+                {% if youtube_url or facebook_url or linkedin_url or discord_url or bluesky_url %}
+                    <p class="d-flex justify-content-center">
+                        {% if youtube_url %}
+                            <a class="social-media-link" href="{{ youtube_url }}"><i class="fa-brands fa-youtube"></i></a>
+                        {% endif %}
+                        {% if facebook_url %}
+                            <a class="social-media-link" href="{{ facebook_url }}"><i class="fa-brands fa-facebook"></i></a>
+                        {% endif %}
+                        {% if linkedin_url %}
+                            <a class="social-media-link" href="{{ linkedin_url }}"><i class="fa-brands fa-linkedin"></i></a>
+                        {% endif %}
+                        {% if discord_url %}
+                            <a class="social-media-link" href="{{ discord_url }}"><i class="fa-brands fa-discord"></i></a>
+                        {% endif %}
+                        {% if bluesky_url %}
+                            <a class="social-media-link" href="{{ bluesky_url }}"><i class="fa-brands fa-bluesky"></i></a>
+                        {% endif %}
+                    </p>
                 {% endif %}
-                {% if affiliate_text %}
-                    {{ affiliate_text|richtext }}
-                {% endif %}
-            </div>
-        {% endif %}
+            {% endwith %}
+                </div>
+        
 
-    {% endwith %}
+        {% get_footer_text %}
 
-    {% get_footer_text %}
+    </footer>
+</div>
 
-</footer>

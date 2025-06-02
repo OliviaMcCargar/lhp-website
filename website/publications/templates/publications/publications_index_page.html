@@ -6,16 +6,26 @@
 {% block body_class %}template-aboutindexpage{% endblock %}
 
 {% block content %}
-    <h1>{{ page.title }}</h1>
+    <div class="container">
+        <div class="d-flex justify-content-center align-items-center"><h1>{{ page.title }}</h1></div>
 
-    <div class="intro">{{ page.intro|richtext }}</div>
+        <div class="intro">{{ page.intro|richtext }}</div>
 
-    {% for publication in publicationpages %}
-        {% with publication=publication.specific %}
-            {% image publication.publication_pic max-100x100 %}
-            <h2><a href="{% pageurl publication %}">{{ publication.name }}</a></h2>
-            <div class="purchase_button"><a href=" {{ publication.purchase_link }}">View in Store</a></div>
-        {% endwith %}
-    {% endfor %}
-
+        <div class="ms-auto publication-list">
+            {% for publication in publicationpages %}
+                {% with publication=publication.specific %}
+                    <a href="{% pageurl publication %}">
+                        <div class="d-flex justify-content-center align-items-center publications-child-box">
+                            {% image publication.publication_pic width-250 %}
+                            <div>
+                                <h2>{{ publication.name }}</h2>
+                                <p>{{ publication.teaser }}</p>
+                            </div>
+                            
+                        </div>
+                    </a>
+                {% endwith %}
+            {% endfor %}
+        </div>
+    </div>
 {% endblock %}

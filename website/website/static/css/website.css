@@ -1,0 +1,181 @@
+
+@import url('https://fonts.googleapis.com/css2?family=Grenze:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Liter&family=Metal+Mania&display=swap');
+
+
+body {
+    background-color: #000;
+    color: #FFF;
+    font-family: "Liter", sans-serif;
+    font-weight: 400;
+    font-style: normal;
+}
+
+header {
+    margin-bottom: 2em;
+}
+
+h1, h2, h3, h4, h5 {
+    font-family: "Grenze", serif;
+    font-weight: 500;
+    font-style: normal;
+}
+
+a {
+    color: #FFF;
+}
+
+a:hover, a:active {
+    color: #db4c36;
+}
+
+nav a {
+    font-family: "Metal Mania", system-ui;
+    font-weight: 400;
+    text-decoration: none;
+    padding: 0.2em;
+    font-size: xxx-large;
+    color: #FFF;
+    border: solid 1px #000;
+    background: #000;
+}
+
+nav a:hover, nav a:active {
+    color: #db4c36;
+}
+
+.pop-out-logo {
+    filter: drop-shadow(0px 0px 20px #db4c36);
+    border-radius: 25%;
+    margin-bottom: 70px;
+}
+
+.pop-out-logo img {
+    filter: drop-shadow(0px 0px 10px #cc0000);
+}
+
+.social-media-link {
+    color:#FFF;
+    font-size: xx-large;
+    padding: 0.5em;
+}
+
+.social-media-link:hover, .social-media-link:active {
+    color: #db4c36;
+}
+
+.affiliate-box {
+    filter: drop-shadow(0px 0px 30px #FFF);
+    margin-bottom: 1em;
+}
+
+.affiliate-box img {
+    filter: drop-shadow(0px 0px 10px #FFF);
+}
+
+.affiliate-box p {
+    margin:0 0 0 2em;
+    font-size: larger;
+    font-weight: bold;
+}
+
+#last-updated-slug, #designed-by-slug {
+    margin: 0;
+}
+
+#designed-by-slug {
+    color: #e0e0e0;
+    font-weight: bold;
+    font-size: smaller;
+}
+
+.intro {
+    padding: 2em;
+    margin-top: 1em;
+}
+
+.profile-list {
+    min-width: 200px;
+}
+
+.profile-list a, .publication-list a {
+    text-decoration: none;
+    
+}
+
+.profile-list a div, .publication-list a div {
+    margin-bottom: 2em;
+}
+
+.profile-list a div div {
+    margin-bottom: 0;
+}
+
+.profile-list div img, .publications-child-box img {
+    margin-right: 1em;
+}
+
+.profile-list div div h2, .profile-list div div p {
+    margin: 0;
+}
+
+.profile-info img, .publication-info img {
+    margin-right: 2em;
+}
+
+.profile-info div h2, profile-info div p {
+    margin: 0;
+}
+
+.profile-info div h2 {
+    margin-bottom: 1em;
+}
+
+.profile-body, .publication-body {
+    padding: 2em;
+    margin-top: 1em;
+}
+
+.publications-child-box div, .about-child-box div {
+    min-width: 200px;
+}
+
+.publication-info h2 {
+    font-size:xxx-large;
+    text-align: right;
+}
+
+.purchase-button, form button {
+    font-weight: bold;
+    display: block;
+    text-decoration: none;
+    padding: 1em 0.5em;
+    border: solid 1px #FFF;
+    border-radius: 20px;
+    margin: 0.5em 0 0 0;
+}
+
+form button {
+    color: #FFF;
+    background-color: #000;
+    min-width: 150px;
+}
+
+.purchase-button:hover, .purchase-button:active, form button:hover, form button:active {
+    background-color: #FFF;
+    color: #db4c36;
+}
+
+form div {
+    margin-bottom: 1em;
+}
+
+form div label {
+    display: block;
+    font-size:x-large;
+}
+
+form div .helptext {
+    color: #e0e0e0;
+    font-weight: bold;
+    font-size: smaller;
+}

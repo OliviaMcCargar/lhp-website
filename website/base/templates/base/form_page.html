@@ -4,12 +4,17 @@
 {% block body_class %}template-formpage{% endblock %}
 
 {% block content %}
-    <h1>{{ page.title }}</h1>
-    <div>{{ page.intro|richtext }}</div>
-
-    <form class="page-form" action="{% pageurl page %}" method="POST">
-        {% csrf_token %}
-        {{ form.as_div }}
-        <button type="Submit">Submit</button>
-    </form>
+    <div class="container d-flex justify-content-between">
+        <div class="form-intro">
+            <h1>{{ page.title }}</h1>
+            <div>{{ page.intro|richtext }}</div>
+        </div>
+        <div class="form-wrapper">
+            <form class="page-form" action="{% pageurl page %}" method="POST">
+                {% csrf_token %}
+                {{ form.as_div }}
+                <button type="Submit">Submit</button>
+            </form>
+        </div>
+    </div>
 {% endblock content %}

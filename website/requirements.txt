@@ -3,3 +3,4 @@ wagtail>=7.0,<7.1
 psycopg2-binary>=2.9,<2.10
 gunicorn>=23.0,<23.1
 django-bootstrap5>=25.0,<26.0
+fontawesomefree>=6.6,<6.7
