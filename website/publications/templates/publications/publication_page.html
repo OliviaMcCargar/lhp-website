@@ -6,15 +6,22 @@
 {% block body_class %}template-publicationpage{% endblock %}
 
 {% block content %}
-
-    <div class="publication_info">
-        {% image page.publication_pic max-100x100 %}
-        <h2>{{ page.name }}</h2>
-        <div class="purchase_button"><a href="{{ page.purchase_link }}">View in Store</a></div>
+    <div class="container">
+        <div class="publication-info d-flex ms-auto justify-content-center align-items-center">
+            {% image page.publication_pic width-300 %}
+            <div>
+                <h2>{{ page.name }}</h2>
+                <a class="purchase-button" href="{{ page.purchase_link }}">Purchase through itch.io</a>
+                <a class="purchase-button" href="{{ page.purchase_link_drivethrough }}">Purchase through DriveThruRPG</a>
+                <a class="purchase-button" href="{{ page.purchase_link_lulu }}">Print on Demand</a>
+            </div>
+        </div>
+        <div class="publication-body">
+            {{ page.body|richtext }}
+        </div>
     </div>
-    <div class="publication_body">
-        {{ page.body|richtext }}
+    <div class="container mt-auto">
+        <p class="d-flex ms-auto justify-content-center"><a href="{{ page.get_parent.url }}">Return to {{ page.get_parent.title }}</a></p>
     </div>
     
-    <p><a href="{{ page.get_parent.url }}">Return to {{ page.get_parent.title }}</a></p>
 {% endblock %}

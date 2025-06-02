@@ -41,7 +41,19 @@ class PublicationPage(Page):
     purchase_link = models.URLField(
         blank=True, 
         null=True, 
-        help_text="Offsite Purchase URL"
+        help_text="Offsite Purchase URL for Itch IO"
+    )
+
+    purchase_link_drivethrough = models.URLField(
+        blank=True, 
+        null=True, 
+        help_text="Offsite Purchase URL for DriveThru RPG"
+    )
+
+    purchase_link_lulu = models.URLField(
+        blank=True, 
+        null=True, 
+        help_text="Offsite Purchase URL for LULU"
     )
 
     body = RichTextField(blank=True)
@@ -52,5 +64,7 @@ class PublicationPage(Page):
         FieldPanel('name'),
         FieldPanel('teaser'),
         FieldPanel('purchase_link'),
+        FieldPanel('purchase_link_drivethrough'),
+        FieldPanel('purchase_link_lulu'),
         FieldPanel('body'),
     ]

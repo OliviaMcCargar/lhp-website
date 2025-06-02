@@ -118,7 +118,7 @@ nav a:hover, nav a:active {
     margin: 0;
 }
 
-.profile-info img {
+.profile-info img, .publication-info img {
     margin-right: 2em;
 }
 
@@ -130,11 +130,31 @@ nav a:hover, nav a:active {
     margin-bottom: 1em;
 }
 
-.profile-body {
+.profile-body, .publication-body {
     padding: 2em;
     margin-top: 1em;
 }
 
 .publications-child-box div, .about-child-box div {
     min-width: 200px;
+}
+
+.publication-info h2 {
+    font-size:xxx-large;
+    text-align: right;
+}
+
+.purchase-button {
+    font-weight: bold;
+    display: block;
+    text-decoration: none;
+    padding: 1em 0.5em;
+    border: solid 1px #FFF;
+    border-radius: 20px;
+    margin: 0.5em 0 0 0;
+}
+
+.purchase-button:hover, .purchase-button:active {
+    background-color: #FFF;
+
 }
