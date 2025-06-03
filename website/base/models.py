@@ -69,6 +69,7 @@ class SocialMediaSettings(BaseGenericSetting):
     """Social media settings for our custom website."""
     discord = models.URLField(blank=True, null=True, help_text="Discord URL")
     facebook = models.URLField(blank=True, null=True, help_text="Facebook URL")
+    instagram = models.URLField(blank=True, null=True, help_text="Instagram URL")
     bluesky = models.URLField(blank=True, null=True, help_text="Bluesky URL")
     youtube = models.URLField(blank=True, null=True, help_text="YouTube Channel URL")
     linkedin = models.URLField(blank=True, null=True, help_text="Linkedin URL")
@@ -77,6 +78,7 @@ class SocialMediaSettings(BaseGenericSetting):
         MultiFieldPanel([
             FieldPanel("discord"),
             FieldPanel("facebook"),
+            FieldPanel("instagram"),
             FieldPanel("bluesky"),
             FieldPanel("youtube"),
             FieldPanel("linkedin"),
