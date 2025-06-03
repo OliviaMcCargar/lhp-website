@@ -33,10 +33,27 @@ class PublicationPage(Page):
         max_length=255, help_text="Name"
     )
 
+    teaser = models.CharField(
+        blank=True,
+        max_length=255, help_text="Short teaser text"
+    )
+
     purchase_link = models.URLField(
         blank=True, 
         null=True, 
-        help_text="Offsite Purchase URL"
+        help_text="Offsite Purchase URL for Itch IO"
+    )
+
+    purchase_link_drivethrough = models.URLField(
+        blank=True, 
+        null=True, 
+        help_text="Offsite Purchase URL for DriveThru RPG"
+    )
+
+    purchase_link_lulu = models.URLField(
+        blank=True, 
+        null=True, 
+        help_text="Offsite Purchase URL for LULU"
     )
 
     body = RichTextField(blank=True)
@@ -45,6 +62,9 @@ class PublicationPage(Page):
     content_panels = Page.content_panels + [
         FieldPanel("publication_pic"),
         FieldPanel('name'),
+        FieldPanel('teaser'),
         FieldPanel('purchase_link'),
+        FieldPanel('purchase_link_drivethrough'),
+        FieldPanel('purchase_link_lulu'),
         FieldPanel('body'),
     ]

@@ -6,16 +6,22 @@
 {% block body_class %}template-aboutpage{% endblock %}
 
 {% block content %}
+    <div class="container">
 
-    <div class="profile_info">
-        {% image page.profile_pic max-100x100 %}
-        <h2>{{ page.name }}</h2>
-        <p>{{ page.role }}</p>
-        <p>{{ page.email }}</p>
+        <div class="profile-info d-flex ms-auto justify-content-center align-items-center">
+            {% image page.profile_pic max-200x200 %}
+            <div>
+                <h2>{{ page.name }}</h2>
+                <p>{{ page.role }}</p>
+                <p>{{ page.email }}</p>
+            </div>
+        </div>
+        <div class="profile-body">
+            {{ page.body|richtext }}
+        </div>
+        
     </div>
-    <div class="profile_body">
-        {{ page.body|richtext }}
+    <div class="container mt-auto">
+        <p class="d-flex ms-auto justify-content-center"><a href="{{ page.get_parent.url }}">Return to {{ page.get_parent.title }}</a></p>
     </div>
-    
-    <p><a href="{{ page.get_parent.url }}">Return to {{ page.get_parent.title }}</a></p>
 {% endblock %}
