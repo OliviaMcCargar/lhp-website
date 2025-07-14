@@ -136,7 +136,7 @@ nav a:hover, nav a:active {
 }
 
 .publications-child-box div, .about-child-box div {
-    min-width: 200px;
+    min-width: 500px;
 }
 
 .publication-info h2 {
